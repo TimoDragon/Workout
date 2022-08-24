@@ -1,4 +1,5 @@
 import BMI.Health;
+import Fernbedienung.RemoteControl;
 import Kopffitness.MultiplicationQuiz;
 import Password.Password;
 import Schrittzähler.StepCounter;
@@ -6,7 +7,7 @@ import Songtextsuche.SongTextSearch;
 
 public class App {
     public static void main(String[] args) {
-        kopffitness();
+
     }
 
     static void stepCounter() {
@@ -44,5 +45,15 @@ public class App {
         MultiplicationQuiz mq = new MultiplicationQuiz();
         System.out.println(mq.getExercise());
         System.out.println("Result: " + mq.getResult());
+    }
+
+    static void fernbedienung() {
+        RemoteControl rc = new RemoteControl();
+        rc.saveChannelName("ARD");
+
+        for (int i = 0; i < 31; i++) {
+            System.out.println(rc.getChannelName());
+            rc.up();
+        }
     }
 }
