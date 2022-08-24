@@ -1,4 +1,5 @@
 import BMI.Health;
+import Password.Password;
 import Schrittzähler.StepCounter;
 import Songtextsuche.SongTextSearch;
 
@@ -18,10 +19,23 @@ public class App {
     }
 
     static void bmi(float weight, float height) {
-        System.out.println(Health.bmiString(weight, height));
+        System.out.println(Health.bmiString(63, 1.75F));
     }
 
     static void songText(String title, String interpret) {
-        System.out.println(SongTextSearch.getURL(title, interpret));
+        System.out.println(SongTextSearch.getURL("MFG", "Die Fantastischen Vier"));
+    }
+
+    static void password(char[] password) {
+        char[] pwd_first = "PassWD15!!".toCharArray();
+        char[] pwd_weak = "1234567890".toCharArray();
+        char[] pwd_strong = "NewPWD16!!".toCharArray();
+
+        Password p = new Password(pwd_first);
+        System.out.println(p.changePassword(pwd_first, pwd_weak));
+        pwd_first[0] = 'p';
+        System.out.println(p.changePassword(pwd_first, pwd_strong));
+        pwd_first[0] = 'P';
+        System.out.println(p.changePassword(pwd_first, pwd_strong));
     }
 }
