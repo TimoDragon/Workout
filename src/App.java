@@ -1,11 +1,12 @@
 import BMI.Health;
+import Kopffitness.MultiplicationQuiz;
 import Password.Password;
 import Schrittzähler.StepCounter;
 import Songtextsuche.SongTextSearch;
 
 public class App {
     public static void main(String[] args) {
-
+        kopffitness();
     }
 
     static void stepCounter() {
@@ -37,5 +38,11 @@ public class App {
         System.out.println(p.changePassword(pwd_first, pwd_strong));
         pwd_first[0] = 'P';
         System.out.println(p.changePassword(pwd_first, pwd_strong));
+    }
+
+    static void kopffitness() {
+        MultiplicationQuiz mq = new MultiplicationQuiz();
+        System.out.println(mq.getExercise());
+        System.out.println("Result: " + mq.getResult());
     }
 }
