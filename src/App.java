@@ -1,5 +1,6 @@
 import BMI.Health;
 import Schrittzähler.StepCounter;
+import Songtextsuche.SongTextSearch;
 
 public class App {
     public static void main(String[] args) {
@@ -18,5 +19,9 @@ public class App {
 
     static void bmi(float weight, float height) {
         System.out.println(Health.bmiString(weight, height));
+    }
+
+    static void songText(String title, String interpret) {
+        System.out.println(SongTextSearch.getURL(title, interpret));
     }
 }
