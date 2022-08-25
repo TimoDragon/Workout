@@ -5,6 +5,7 @@ import Password.Password;
 import Schrittzähler.StepCounter;
 import Songtextsuche.SongTextSearch;
 import Stoppuhr.StopWatch;
+import TicTacToe.TicTacToe;
 
 public class App {
     public static void main(String[] args) {
@@ -68,5 +69,13 @@ public class App {
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    static void tictactoe() {
+        TicTacToe t = new TicTacToe();
+        t.setMark(2, 2);
+        t.setMark(2, 0);
+        t.setMark(1, 1);
+        System.out.println(t.toString());
     }
 }
