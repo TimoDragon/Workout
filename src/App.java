@@ -5,6 +5,7 @@ import Password.Password;
 import Schrittzähler.StepCounter;
 import Songtextsuche.SongTextSearch;
 import Stoppuhr.StopWatch;
+import Temperaturgraph.TemperatureGraph;
 import TicTacToe.TicTacToe;
 import Zwischenablage.Clipboard;
 
@@ -89,5 +90,22 @@ public class App {
         }
 
         System.out.println(cb.toString());
+    }
+
+    static void temperatureGraph() {
+        TemperatureGraph temperatureGraph = new TemperatureGraph(2022);
+        temperatureGraph.addTemperature(-11, 1);
+        temperatureGraph.addTemperature(-3, 2);
+        temperatureGraph.addTemperature(5, 3);
+        temperatureGraph.addTemperature(10, 4);
+        temperatureGraph.addTemperature(15, 5);
+        temperatureGraph.addTemperature(24, 6);
+        temperatureGraph.addTemperature(29, 7);
+        temperatureGraph.addTemperature(27, 8);
+        temperatureGraph.addTemperature(19, 9);
+        temperatureGraph.addTemperature(8, 10);
+        temperatureGraph.addTemperature(4, 11);
+        temperatureGraph.addTemperature(-5, 12);
+        temperatureGraph.plotGraph();
     }
 }
