@@ -6,6 +6,7 @@ import Schrittzähler.StepCounter;
 import Songtextsuche.SongTextSearch;
 import Stoppuhr.StopWatch;
 import TicTacToe.TicTacToe;
+import Zwischenablage.Clipboard;
 
 public class App {
     public static void main(String[] args) {
@@ -77,5 +78,16 @@ public class App {
         t.setMark(2, 0);
         t.setMark(1, 1);
         System.out.println(t.toString());
+    }
+
+    static void clipboard() {
+        Clipboard cb = new Clipboard(10);
+
+        // 0 - 10 wird in den Speicher geschrieben. Da 10 nicht reinpasst wird 0 überschrieben
+        for (int i = 0; i < 11; i++) {
+            cb.copy(i + "");
+        }
+
+        System.out.println(cb.toString());
     }
 }
