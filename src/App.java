@@ -4,6 +4,7 @@ import Kopffitness.MultiplicationQuiz;
 import Password.Password;
 import Schrittzähler.StepCounter;
 import Songtextsuche.SongTextSearch;
+import Stoppuhr.StopWatch;
 
 public class App {
     public static void main(String[] args) {
@@ -54,6 +55,18 @@ public class App {
         for (int i = 0; i < 31; i++) {
             System.out.println(rc.getChannelName());
             rc.up();
+        }
+    }
+
+    static void stopwatch() {
+        StopWatch stopWatch = new StopWatch();
+        stopWatch.start();
+        try {
+            Thread.sleep(1400);
+            stopWatch.stop();
+            System.out.println(stopWatch.elapsedTime());
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
         }
     }
 }
