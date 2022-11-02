@@ -8,11 +8,12 @@ import Songtextsuche.SongTextSearch;
 import Stoppuhr.StopWatch;
 import Temperaturgraph.TemperatureGraph;
 import TicTacToe.TicTacToe;
+import Verschluesselung.ShiftCipher;
 import Zwischenablage.Clipboard;
 
 public class App {
     public static void main(String[] args) {
-
+        verschluesselung();
     }
 
     static void stepCounter() {
@@ -117,5 +118,11 @@ public class App {
             light.increaseLightness();
             System.out.println(light.getNextColor().toString());
         }
+    }
+
+    static void verschluesselung() {
+        ShiftCipher cipher = new ShiftCipher(7);
+        System.out.println(cipher.encipher("diesertextistverschluesselt"));
+        System.out.println(cipher.decipher(cipher.encipher("diesertextistverschluesselt")));
     }
 }
