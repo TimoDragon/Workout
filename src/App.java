@@ -1,3 +1,4 @@
+import AmbientLight.AmbiLight;
 import BMI.Health;
 import Fernbedienung.RemoteControl;
 import Kopffitness.MultiplicationQuiz;
@@ -107,5 +108,14 @@ public class App {
         temperatureGraph.addTemperature(4, 11);
         temperatureGraph.addTemperature(-5, 12);
         temperatureGraph.plotGraph();
+    }
+
+    static void ambiLight() {
+        AmbiLight light = new AmbiLight();
+
+        for (int i = 0; i < 100; i++) {
+            light.increaseLightness();
+            System.out.println(light.getNextColor().toString());
+        }
     }
 }
