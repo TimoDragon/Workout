@@ -2,6 +2,7 @@ import AmbientLight.AmbiLight;
 import BMI.Health;
 import Fernbedienung.RemoteControl;
 import Kopffitness.MultiplicationQuiz;
+import Mastermind.Mastermind;
 import Password.Password;
 import Schrittzähler.StepCounter;
 import Songtextsuche.SongTextSearch;
@@ -11,9 +12,11 @@ import TicTacToe.TicTacToe;
 import Verschluesselung.ShiftCipher;
 import Zwischenablage.Clipboard;
 
+import java.util.Scanner;
+
 public class App {
     public static void main(String[] args) {
-        verschluesselung();
+        mastermind();
     }
 
     static void stepCounter() {
@@ -124,5 +127,48 @@ public class App {
         ShiftCipher cipher = new ShiftCipher(7);
         System.out.println(cipher.encipher("diesertextistverschluesselt"));
         System.out.println(cipher.decipher(cipher.encipher("diesertextistverschluesselt")));
+    }
+
+    static void mastermind() {
+        Mastermind mastermind = new Mastermind();
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Willkommen bei Mastermind. Gebe vier Farben ein (Rot, Grün, Blau, Weiß, Orange oder Grau):");
+        while (true) {
+            String[] in = sc.nextLine().split(" ");
+
+            if (in.length == 4) {
+                int[] colors = new int[4];
+
+                for (int i = 0; i < in.length; i++) {
+                    switch (in[i].toLowerCase()) {
+                        case "rot":
+                            colors[i] = 0;
+                            break;
+                        case "grün":
+                            colors[i] = 1;
+                            break;
+                        case "blau":
+                            colors[i] = 2;
+                            break;
+                        case "weiß":
+                            colors[i] = 3;
+                            break;
+                        case "orange":
+                            colors[i] = 4;
+                            break;
+                        case "grau":
+                            colors[i] = 5;
+                            break;
+                    }
+                }
+
+                int[] ret = mastermind.guess(colors[0], colors[1], colors[2], colors[3]);
+                System.out.println("Corrent Color and Positions: " + ret[0] + "\nCorrect Colors: " + ret[1]);
+            }
+            else {
+                System.out.println("Du musst vier Farben eingeben");
+            }
+        }
     }
 }
